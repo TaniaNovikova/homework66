@@ -18,7 +18,8 @@ public class ExecutorGroupSum extends GroupSum {
         for (int i = 0; i < tasks.length; i++) {
             tasks[i] = new OneGroupSum(numberGroups[i]);
         }
-        ExecutorService executorService = Executors.newFixedThreadPool(numberGroups.length/100);
+        int poolSize = Runtime.getRuntime().availableProcessors();
+        ExecutorService executorService = Executors.newFixedThreadPool(poolSize);
         for (int i = 0; i < tasks.length; i++) {
             executorService.execute(tasks[i]);
         }
