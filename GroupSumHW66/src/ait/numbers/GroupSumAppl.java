@@ -15,11 +15,11 @@ public class GroupSumAppl {
 
     public static void main(String[] args) throws InterruptedException {
         fillArray();
-       // GroupSum threadGroupSum = new ThreadGroupSum(arr);
+        GroupSum threadGroupSum = new ThreadGroupSum(arr);
        // System.out.println(threadGroupSum.computeSum());
         GroupSum executorGroupSum = new ExecutorGroupSum(arr);
         // GroupSum streamGroupSum = new ParallelStreamGroupSum(arr);
-       //  new GroupSumPerfomanceTest("ThreadGroupSum", threadGroupSum).runTest();
+         new GroupSumPerfomanceTest("ThreadGroupSum", threadGroupSum).runTest();
           new GroupSumPerfomanceTest("ExecutorGroupSum", executorGroupSum).runTest();
         // new GroupSumPerfomanceTest("ParallelStreamGroupSum", streamGroupSum).runTest();
     }

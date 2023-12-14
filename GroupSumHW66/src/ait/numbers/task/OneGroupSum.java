@@ -6,11 +6,9 @@ public class OneGroupSum implements Runnable {
     private int[] group;
     private int sum;
 
-    public OneGroupSum() {
-
+    public OneGroupSum(int[] group) {
         this.group = group;
     }
-
     public int getSum() {
         return sum;
     }

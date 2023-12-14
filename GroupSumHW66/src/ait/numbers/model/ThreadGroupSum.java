@@ -15,7 +15,7 @@ public class ThreadGroupSum extends GroupSum {
     public int computeSum() throws InterruptedException {
         OneGroupSum[] tasks = new OneGroupSum[numberGroups.length];
         for (int i = 0; i < tasks.length; i++) {
-            tasks[i] = new OneGroupSum();
+            tasks[i] = new OneGroupSum(numberGroups[i]);
         }
         Thread[] threads = new Thread[tasks.length];
         for (int i = 0; i < threads.length; i++) {
