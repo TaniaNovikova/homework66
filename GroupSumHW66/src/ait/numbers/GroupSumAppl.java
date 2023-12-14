@@ -2,6 +2,7 @@ package ait.numbers;
 
 import ait.numbers.model.ExecutorGroupSum;
 import ait.numbers.model.GroupSum;
+import ait.numbers.model.ParallelStreamGroupSum;
 import ait.numbers.model.ThreadGroupSum;
 import ait.numbers.test.GroupSumPerfomanceTest;
 
@@ -15,13 +16,13 @@ public class GroupSumAppl {
 
     public static void main(String[] args) throws InterruptedException {
         fillArray();
-        GroupSum threadGroupSum = new ThreadGroupSum(arr);
-       // System.out.println(threadGroupSum.computeSum());
         GroupSum executorGroupSum = new ExecutorGroupSum(arr);
-        // GroupSum streamGroupSum = new ParallelStreamGroupSum(arr);
-         new GroupSumPerfomanceTest("ThreadGroupSum", threadGroupSum).runTest();
+
+        GroupSum threadGroupSum = new ThreadGroupSum(arr);
+         GroupSum streamGroupSum = new ParallelStreamGroupSum(arr);
           new GroupSumPerfomanceTest("ExecutorGroupSum", executorGroupSum).runTest();
-        // new GroupSumPerfomanceTest("ParallelStreamGroupSum", streamGroupSum).runTest();
+        new GroupSumPerfomanceTest("ThreadGroupSum", threadGroupSum).runTest();
+        new GroupSumPerfomanceTest("ParallelStreamGroupSum", streamGroupSum).runTest();
     }
 
     private static void fillArray() {
